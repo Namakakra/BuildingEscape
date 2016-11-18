@@ -12,7 +12,7 @@ UPositionReporte::UPositionReporte()
 	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
+
 }
 
 
@@ -21,8 +21,11 @@ void UPositionReporte::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-	
+	FString ObjectName = GetOwner()->GetName();
+	FString ObjectPos = GetOwner()->GetTransform().GetLocation().ToString();
+
+	UE_LOG(LogTemp, Warning, TEXT(" %s Position Is:  %s "), *ObjectName, *ObjectPos);
+
 }
 
 
