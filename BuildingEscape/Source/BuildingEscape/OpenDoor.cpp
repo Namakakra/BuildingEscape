@@ -44,11 +44,9 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	// Poll the Trigger Volume
 	// If the actor that opens is in the volume
 
-	if (ActorThatOpens != nullptr)
-	{
+	
 		if (PressurePlate->IsOverlappingActor(ActorThatOpens))
 		{
 			OpenDoor();
 		}
 	}
-}
