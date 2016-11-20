@@ -20,6 +20,14 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();	
+
+	if (PressurePlate) // Not sure why used, but code doesn't work without.
+	{
+		{
+			ActorThatOpens = GetWorld()->GetFirstPlayerController()->GetPawn();
+		}
+	}
+
 }
 
 void UOpenDoor::OpenDoor()
@@ -44,9 +52,13 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	// Poll the Trigger Volume
 	// If the actor that opens is in the volume
 
-	
+
+	if (PressurePlate)
+	{
 		if (PressurePlate->IsOverlappingActor(ActorThatOpens))
 		{
 			OpenDoor();
 		}
 	}
+
+}
